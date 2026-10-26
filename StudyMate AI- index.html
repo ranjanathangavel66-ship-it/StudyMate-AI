@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyMate AI | Learn Smarter</title>
+  <style>
+    :root{--ink:#172554;--muted:#64748b;--blue:#4f46e5;--teal:#0f766e;--bg:#f7f8ff;--card:#fff}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(135deg,#f7f8ff,#ecfeff);line-height:1.5}
+    header{display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:#ffffffdd;position:sticky;top:0;backdrop-filter:blur(10px);border-bottom:1px solid #e2e8f0;z-index:5}
+    .brand{font-weight:800;font-size:1.2rem;color:var(--blue)} nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#334155;text-decoration:none;font-weight:600;font-size:.94rem}
+    .hero{padding:68px 7% 48px;display:grid;grid-template-columns:1.15fr .85fr;gap:35px;align-items:center}
+    .pill{display:inline-block;padding:7px 12px;background:#e0e7ff;color:#4338ca;border-radius:99px;font-weight:700;font-size:.82rem}
+    h1{font-size:clamp(2.3rem,5vw,4.1rem);line-height:1.06;margin:18px 0}h1 span{color:var(--blue)}
+    .lead{color:var(--muted);font-size:1.1rem;max-width:570px}
+    .btn{border:0;border-radius:12px;padding:13px 18px;font-weight:700;cursor:pointer;font-size:1rem;background:var(--blue);color:white;box-shadow:0 8px 18px #4f46e533}
+    .btn.secondary{background:#e0f2fe;color:#075985;box-shadow:none}
+    .hero-art{background:linear-gradient(140deg,#4f46e5,#0f766e);border-radius:28px;padding:26px;color:white;min-height:280px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 20px 45px #4338ca2b}
+    .hero-art .emoji{font-size:4rem}.hero-art h2{margin:8px 0}.mini{background:#ffffff20;border:1px solid #ffffff50;border-radius:14px;padding:12px;margin-top:10px}
+    section{padding:28px 7% 55px}.section-title{text-align:center;font-size:2rem;margin:0 0 8px}.section-sub{text-align:center;color:var(--muted);margin:0 auto 28px;max-width:600px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid #e2e8f0;border-radius:20px;padding:22px;box-shadow:0 10px 30px #0f172a08}.card .icon{font-size:2rem}.card h3{margin:10px 0 5px}.card p{color:var(--muted);margin:0 0 14px}.card button{padding:10px 13px;border-radius:10px;border:0;background:#eef2ff;color:#4338ca;font-weight:700;cursor:pointer}
+    .toolbox{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.panel{background:white;border:1px solid #e2e8f0;border-radius:20px;padding:22px}
+    label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;background:#fff}textarea{min-height:110px;resize:vertical}
+    .output{white-space:pre-wrap;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:12px;padding:14px;color:#334155;min-height:100px;margin-top:14px}
+    .quiz-q{font-weight:700;margin:10px 0}.quiz-options{display:grid;gap:8px}.quiz-options button{text-align:left;border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:11px;cursor:pointer}.quiz-options button:hover{border-color:var(--blue);background:#eef2ff}
+    .notice{color:var(--muted);font-size:.9rem}.footer{text-align:center;padding:28px 7%;background:#172554;color:#dbeafe}.footer small{color:#bfdbfe}
+    @media(max-width:760px){header{padding:15px 5%;align-items:flex-start;gap:10px;flex-direction:column}.hero{grid-template-columns:1fr;padding:42px 5% 30px}.cards,.toolbox{grid-template-columns:1fr}section{padding:24px 5% 42px}nav{gap:13px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand">📘 StudyMate AI</div>
+  <nav>
+    <a href="#features">Features</a><a href="#notes">Study helper</a><a href="#quiz">Quiz</a>
+  </nav>
+</header>
+<main>
+  <div class="hero">
+    <div>
+      <span class="pill">✨ Your friendly study companion</span>
+      <h1>Make learning <span>simpler.</span></h1>
+      <p class="lead">Organize your revision, turn a topic into simple notes, and practise with quick quizzes — all in one beginner-friendly study space.</p>
+      <button class="btn" onclick="document.querySelector('#notes').scrollIntoView({behavior:'smooth'})">Start learning →</button>
+      <button class="btn secondary" onclick="document.querySelector('#quiz').scrollIntoView({behavior:'smooth'})">Try a quiz</button>
+    </div>
+    <div class="hero-art">
+      <div class="emoji">🎓 📚</div><h2>Small steps. Strong learning.</h2>
+      <p>Choose a topic, write what you need to learn, and use the tools below to revise.</p>
+      <div class="mini">✅ Simple notes &nbsp; • &nbsp; 🧠 Quick practice</div>
+    </div>
+  </div>
+  <section id="features">
+    <h2 class="section-title">Everything you need to revise</h2>
+    <p class="section-sub">Simple tools designed to help students study more confidently.</p>
+    <div class="cards">
+      <div class="card"><div class="icon">📝</div><h3>Study Notes</h3><p>Make a short revision checklist for a topic.</p><button onclick="document.querySelector('#notes').scrollIntoView({behavior:'smooth'})">Create notes</button></div>
+      <div class="card"><div class="icon">💡</div><h3>Topic Explainer</h3><p>Write a topic and get a simple study outline.</p><button onclick="document.querySelector('#notes').scrollIntoView({behavior:'smooth'})">Explain a topic</button></div>
+      <div class="card"><div class="icon">🎯</div><h3>Practice Quiz</h3><p>Test your knowledge with a quick sample question.</p><button onclick="document.querySelector('#quiz').scrollIntoView({behavior:'smooth'})">Take a quiz</button></div>
+    </div>
+  </section>
+  <section id="notes">
+    <h2 class="section-title">Your study helper</h2>
+    <p class="section-sub">This demo creates a simple study outline in your browser. It does not connect to an external AI service.</p>
+    <div class="toolbox">
+      <div class="panel">
+        <label for="topic">What topic are you studying?</label>
+        <input id="topic" placeholder="Example: Database Management System">
+        <label for="goal">Study goal</label>
+        <select id="goal"><option>Understand the basics</option><option>Prepare for an exam</option><option>Revise important points</option><option>Practise definitions</option></select>
+        <label for="details">What do you already know? (optional)</label>
+        <textarea id="details" placeholder="Write a few words about the topic..."></textarea>
+        <button class="btn" style="margin-top:14px" onclick="makeNotes()">Create study outline</button>
+      </div>
+      <div class="panel"><h3>📚 Your revision plan</h3><div id="notesOutput" class="output">Your study outline will appear here.</div><p class="notice">Tip: Check important facts with your class notes or textbook.</p></div>
+    </div>
+  </section>
+  <section id="quiz">
+    <h2 class="section-title">Quick practice quiz</h2><p class="section-sub">Try a sample computer-science question.</p>
+    <div class="panel" style="max-width:700px;margin:auto">
+      <div class="pill">Question 1 of 1</div><p class="quiz-q">Which language is commonly used to structure the content of a web page?</p>
+      <div class="quiz-options">
+        <button onclick="answer(false)">A. SQL</button><button onclick="answer(true)">B. HTML</button><button onclick="answer(false)">C. Python only</button><button onclick="answer(false)">D. Excel</button>
+      </div><div id="quizResult" class="output" aria-live="polite">Choose an answer to see your result.</div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><strong>StudyMate AI</strong><br><small>A student learning project • Built for learning and revision</small></footer>
+<script>
+function makeNotes(){
+  const topic=document.getElementById('topic').value.trim();
+  const goal=document.getElementById('goal').value;
+  const details=document.getElementById('details').value.trim();
+  if(!topic){document.getElementById('notesOutput').textContent='Please enter a topic first.';return;}
+  document.getElementById('notesOutput').textContent=
+    'Topic: '+topic+'\\nStudy goal: '+goal+'\\n\\n1. Write a one-sentence definition.\\n2. List 3 important concepts or keywords.\\n3. Add one real-life example.\\n4. Practise explaining the topic in your own words.\\n5. Review it again tomorrow.\\n'+(details?'\\nYour starting notes: '+details:'\\n\\nAdd your own key points from your textbook here.')+
+    '\\n\\nReminder: This is a study outline template, not AI-generated factual content.';
+}
+function answer(correct){
+ const out=document.getElementById('quizResult');
+ out.textContent=correct?'Correct! 🎉 HTML is used to structure web page content.':'Not quite. The correct answer is HTML. Try to remember: HTML structures a web page.';
+}
+</script>
+</body>
+</html>
