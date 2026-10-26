@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyMate AI</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#e0e7ff,#cffafe,#fce7f3);
+ color:#172554;
+}
+header{
+ background:#4338ca;color:white;padding:20px 7%;
+ display:flex;justify-content:space-between;align-items:center;
+ flex-wrap:wrap;gap:15px;
+}
+nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
+.hero{text-align:center;padding:65px 20px}
+.hero h1{font-size:42px;margin:15px}
+.hero p{font-size:17px;margin:15px auto;max-width:650px;line-height:1.7}
+button{
+ background:#4f46e5;color:white;border:0;padding:12px 18px;
+ border-radius:10px;cursor:pointer;font-weight:bold;margin:6px;
+}
+button:hover{background:#312e81}
+section{padding:35px 7%}
+h2{text-align:center;margin-bottom:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card,.panel{
+ background:white;padding:24px;border-radius:18px;
+ box-shadow:0 8px 25px #00000012;margin-bottom:15px;
+}
+.card{text-align:center}
+.card h3{margin:12px}
+.card p{line-height:1.6;color:#475569}
+input,select,textarea{
+ width:100%;padding:13px;margin:10px 0 15px;
+ border:1px solid #cbd5e1;border-radius:9px;font-size:15px;
+}
+label{font-weight:bold}
+#output,#result{
+ background:#eef2ff;padding:15px;border-radius:10px;
+ margin-top:15px;white-space:pre-wrap;line-height:1.7;
+}
+footer{text-align:center;background:#172554;color:white;padding:25px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2 style="margin:0">📘 StudyMate AI</h2>
+<nav>
+<a href="#home">Home</a>
+<a href="#features">Features</a>
+<a href="#study">Study Helper</a>
+<a href="#quiz">Quiz</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<h1>Learn Smarter, <span style="color:#4f46e5">Not Harder!</span></h1>
+<p>Your friendly study companion. Organize your revision, create study plans and practise questions in one simple website.</p>
+<button onclick="goTo('study')">Start Learning 🚀</button>
+<button onclick="goTo('quiz')">Try Quiz 🎯</button>
+</div>
+
+<section id="features">
+<h2>✨ Our Features</h2>
+<div class="cards">
+<div class="card">
+<h1>📝</h1><h3>Study Planner</h3>
+<p>Create a simple revision plan for your subjects.</p>
+<button onclick="goTo('study')">Get Started</button>
+</div>
+<div class="card">
+<h1>💡</h1><h3>Topic Helper</h3>
+<p>Organize your topic into easy revision steps.</p>
+<button onclick="goTo('study')">Explore</button>
+</div>
+<div class="card">
+<h1>🎯</h1><h3>Practice Quiz</h3>
+<p>Test your knowledge with a sample question.</p>
+<button onclick="goTo('quiz')">Take Quiz</button>
+</div>
+</div>
+</section>
+
+<section id="study">
+<h2>📚 Your Study Helper</h2>
+<div class="panel">
+<label for="topic">Enter your topic</label>
+<input id="topic" placeholder="Example: Database Management System">
+
+<label for="goal">Choose your goal</label>
+<select id="goal">
+<option>Understand the basics</option>
+<option>Prepare for an exam</option>
+<option>Revise important points</option>
+<option>Practise definitions</option>
+</select>
+
+<label for="details">Your notes (optional)</label>
+<textarea id="details" placeholder="Write what you already know..."></textarea>
+
+<button onclick="makePlan()">Create My Study Plan</button>
+<div id="output">Your study plan will appear here.</div>
+</div>
+</section>
+
+<section id="quiz">
+<h2>🎯 Quick Quiz</h2>
+<div class="panel">
+<p><b>Which language is used to structure a web page?</b></p>
+<button onclick="check(false)">A. SQL</button>
+<button onclick="check(true)">B. HTML</button>
+<button onclick="check(false)">C. Excel</button>
+<button onclick="check(false)">D. Java only</button>
+<div id="result">Choose your answer!</div>
+<button onclick="resetQuiz()">Try Again</button>
+</div>
+</section>
+
+<footer>
+<h3>📘 StudyMate AI</h3>
+<p>Learn • Practise • Improve</p>
+<p>Student Learning Project</p>
+</footer>
+
+<script>
+function goTo(id){
+ document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function makePlan(){
+ const topic=document.getElementById("topic").value.trim();
+ const goal=document.getElementById("goal").value;
+ const details=document.getElementById("details").value.trim();
+ const output=document.getElementById("output");
+
+ if(topic===""){
+  output.textContent="Please enter a topic first!";
+  return;
+ }
+
+ output.textContent=
+ "📘 TOPIC: "+topic+
+ "\n🎯 GOAL: "+goal+
+ "\n\n📌 YOUR STUDY PLAN"+
+ "\n1. Read the basic definition."+
+ "\n2. Learn three important concepts."+
+ "\n3. Write down key points."+
+ "\n4. Practise two questions."+
+ "\n5. Revise what you learned."+
+ (details?"\n\nYour notes: "+details:"")+
+ "\n\nKeep practising every day!";
+
+}
+
+function check(correct){
+ document.getElementById("result").textContent=
+ correct
+ ?"🎉 Correct! HTML structures web page content."
+ :"❌ Not quite! The correct answer is HTML.";
+}
+
+function resetQuiz(){
+ document.getElementById("result").textContent="Choose your answer!";
+}
+</script>
+
+</body>
+</html>
